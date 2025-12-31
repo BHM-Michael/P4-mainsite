@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
       <div class="container">
         <div class="header-content">
           <a routerLink="/" class="logo">
+            <img [src]="logoUrl" alt="Patriots 4 Logo" class="logo-image">
             <div class="logo-text">
               <span class="logo-main">Patriots 4</span>
               <span class="logo-tagline">Serving Those Who Served</span>
@@ -40,7 +41,7 @@ import { CommonModule } from '@angular/common';
   styles: [`
     .header {
       background-color: var(--primary-navy);
-      padding: 15px 0;
+      padding: 10px 0;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -57,6 +58,12 @@ import { CommonModule } from '@angular/common';
       display: flex;
       align-items: center;
       text-decoration: none;
+      gap: 12px;
+    }
+
+    .logo-image {
+      height: 55px;
+      width: auto;
     }
 
     .logo-text {
@@ -66,13 +73,13 @@ import { CommonModule } from '@angular/common';
 
     .logo-main {
       font-family: 'Merriweather', serif;
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--white);
     }
 
     .logo-tagline {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: var(--primary-gold);
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -147,9 +154,13 @@ import { CommonModule } from '@angular/common';
         display: flex;
       }
 
+      .logo-text {
+        display: none;
+      }
+
       .nav {
         position: fixed;
-        top: 70px;
+        top: 75px;
         left: 0;
         right: 0;
         background-color: var(--primary-navy);
@@ -178,6 +189,7 @@ import { CommonModule } from '@angular/common';
   `]
 })
 export class HeaderComponent {
+  logoUrl = 'https://p4images.blob.core.windows.net/images/site%20logo/logo.jpg';
   menuOpen = false;
 
   toggleMenu() {

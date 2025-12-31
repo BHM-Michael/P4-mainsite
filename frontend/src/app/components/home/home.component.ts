@@ -189,7 +189,7 @@ import { CommonModule } from '@angular/common';
       min-height: 80vh;
       display: flex;
       align-items: center;
-      background-image: url('https://p4images.blob.core.windows.net/images/hero/usaf emblem.jpg');
+      background-image: url('https://p4images.blob.core.windows.net/images/hero/Flagwaving.jpg');
       background-size: cover;
       background-position: center;
     }
