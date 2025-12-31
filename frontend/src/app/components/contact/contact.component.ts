@@ -35,7 +35,7 @@ import { FormsModule } from '@angular/forms';
               </p>
               <p>
                 <strong>Phone/Text:</strong><br>
-                <a href="tel:703-929-4523">703-929-4523</a> (Kay)
+                <a href="tel:202-549-6828">202-549-6828</a> (Randy)
               </p>
             </div>
 

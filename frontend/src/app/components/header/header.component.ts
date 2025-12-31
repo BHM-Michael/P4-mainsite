@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
           <a routerLink="/" class="logo">
             <div class="logo-text">
               <span class="logo-main">Patriots 4</span>
-              <span class="logo-tagline">Serving The Ones Who Serve</span>
+              <span class="logo-tagline">Serving Those Who Served</span>
             </div>
           </a>
           
@@ -25,9 +25,11 @@ import { CommonModule } from '@angular/common';
 
           <nav class="nav" [class.open]="menuOpen">
             <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Home</a>
-            <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About Us</a>
-            <a routerLink="/accommodations" routerLinkActive="active" (click)="closeMenu()">Accommodations</a>
+            <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
+            <a routerLink="/accommodations" routerLinkActive="active" (click)="closeMenu()">Cabins</a>
             <a routerLink="/programs" routerLinkActive="active" (click)="closeMenu()">Programs</a>
+            <a routerLink="/gallery" routerLinkActive="active" (click)="closeMenu()">Gallery</a>
+            <a routerLink="/news" routerLinkActive="active" (click)="closeMenu()">News</a>
             <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
             <a href="#donate" class="btn btn-primary nav-donate" (click)="closeMenu()">Donate</a>
           </nav>
@@ -79,12 +81,12 @@ import { CommonModule } from '@angular/common';
     .nav {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 22px;
 
       a {
         color: var(--white);
         font-weight: 600;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 5px 0;
@@ -100,7 +102,8 @@ import { CommonModule } from '@angular/common';
 
     .nav-donate {
       border-bottom: none !important;
-      padding: 10px 20px !important;
+      padding: 10px 18px !important;
+      font-size: 0.75rem !important;
 
       &:hover {
         color: var(--white) !important;
@@ -139,7 +142,7 @@ import { CommonModule } from '@angular/common';
       }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1100px) {
       .mobile-toggle {
         display: flex;
       }
@@ -168,6 +171,7 @@ import { CommonModule } from '@angular/common';
           width: 100%;
           text-align: center;
           padding: 10px;
+          font-size: 0.9rem;
         }
       }
     }

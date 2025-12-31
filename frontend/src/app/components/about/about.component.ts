@@ -39,7 +39,7 @@ import { CommonModule } from '@angular/common';
         <h2>Our Story</h2>
         <div class="story-content">
           <p>
-            Patriots 4 is owned by a 35 year Marine Veteran and his wife, Randy and Robin Lane West. 
+            Patriots 4 is founded by a 35 year Marine Veteran and his wife, Randy and Robin Lane West. 
             Robin's Father, Al Lane Sr. retired from the Air Force after serving in World War II and Korea. 
             Randy served in Vietnam, Desert Shield and Desert Storm.
           </p>

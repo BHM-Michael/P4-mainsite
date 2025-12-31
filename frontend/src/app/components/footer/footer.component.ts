@@ -41,7 +41,7 @@ import { RouterLink } from '@angular/router';
             </p>
             <p class="mt-2">
               <strong>Phone:</strong><br>
-              <a href="tel:703-929-4523">703-929-4523 (Kay)</a>
+              <a href="tel:202-549-6828">202-549-6828 (Randy)</a>
             </p>
           </div>
         </div>

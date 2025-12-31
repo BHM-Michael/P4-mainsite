@@ -12,20 +12,41 @@ import { CommonModule } from '@angular/common';
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <h1>Patriots 4</h1>
-        <p class="tagline">Serving The Ones Who Serve</p>
+        <p class="tagline">Serving Those Who Served</p>
         <p class="hero-description">
           A non-profit organization committed to supporting combat wounded service members 
           and their families with free outdoor recreational facilities in the mountains of West Virginia.
         </p>
         <div class="hero-buttons">
           <a routerLink="/programs" class="btn btn-primary">Our Programs</a>
-          <a href="#donate" class="btn btn-outline hero-btn-outline">Donate Now</a>
+          <a routerLink="/contact" class="btn btn-outline hero-btn-outline">Plan Your Visit</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Aerial View Section -->
+    <section class="section aerial-section">
+      <div class="container">
+        <div class="aerial-content">
+          <div class="aerial-image">
+            <img src="assets/images/hero/drone_over_camp.jpg" alt="Aerial view of Patriots 4 camp">
+          </div>
+          <div class="aerial-text">
+            <h2>354 Acres of Freedom</h2>
+            <p>
+              Nestled in the mountains of St. George, West Virginia, Patriots 4 offers wounded veterans 
+              and their families a peaceful retreat surrounded by nature. Our property features half a mile 
+              on the Cheat River, half a mile on Clover Run trout stream, and is bordered by the 
+              Monongahela National Forest.
+            </p>
+            <a routerLink="/about" class="btn btn-secondary">Learn Our Story</a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Welcome Section -->
-    <section class="section welcome">
+    <section class="section section-alt welcome">
       <div class="container">
         <div class="welcome-content">
           <h2>Welcome to Patriots 4</h2>
@@ -42,10 +63,6 @@ import { CommonModule } from '@angular/common';
             and their families – a place to enjoy and take part at no cost in outdoor activities regardless of 
             the type of injury.
           </p>
-          <p>
-            Activities include camping (either in personal campers or one of our five cabins on the property), 
-            hiking, fishing, kayaking, tubing, photography, hunting, and relaxation.
-          </p>
           <p class="signature">
             <em>We are dedicated to giving back to those who have already sacrificed so much so that 
             "We the People" can remain free.</em>
@@ -55,32 +72,38 @@ import { CommonModule } from '@angular/common';
     </section>
 
     <!-- Features Section -->
-    <section class="section section-alt features">
+    <section class="section features">
       <div class="container">
         <h2 class="text-center">What We Offer</h2>
         <div class="features-grid">
           <div class="feature-card">
-            <div class="feature-icon">🏠</div>
-            <h3>5 Military-Themed Cabins</h3>
-            <p>Wheelchair-accessible cabins named in honor of each military branch: Semper Fi, Hooah, 
-            Anchors Away, Wild Blue Yonder, and Wild & Wonderful.</p>
-            <a routerLink="/accommodations" class="btn btn-secondary">View Cabins</a>
+            <img src="assets/images/cabins/anchors-away.jpg" alt="Patriots 4 Cabin" class="feature-image">
+            <div class="feature-content">
+              <h3>Military-Themed Cabins</h3>
+              <p>Wheelchair-accessible cabins named in honor of each military branch: Semper Fi, Hooah, 
+              Anchors Away, Wild Blue Yonder, and Wild & Wonderful.</p>
+              <a routerLink="/accommodations" class="btn btn-secondary">View Cabins</a>
+            </div>
           </div>
           
           <div class="feature-card">
-            <div class="feature-icon">🎯</div>
-            <h3>Adaptive Equipment</h3>
-            <p>Including our Huntmaster – a wheelchair accessible, solar charged, hydraulic hunting platform 
-            that rises up to 25 feet, plus track wheelchairs for fishing.</p>
-            <a routerLink="/programs" class="btn btn-secondary">Learn More</a>
+            <img src="assets/images/activities/turkey-hunt.jpg" alt="Veterans turkey hunting" class="feature-image">
+            <div class="feature-content">
+              <h3>Hunting & Fishing</h3>
+              <p>Turkey, deer, bear, and grouse hunting during WV seasons. Fish for trout, smallmouth bass, 
+              and rock bass on our streams and the Cheat River.</p>
+              <a routerLink="/programs" class="btn btn-secondary">Activities</a>
+            </div>
           </div>
           
           <div class="feature-card">
-            <div class="feature-icon">🏔️</div>
-            <h3>Outdoor Activities</h3>
-            <p>Fishing, hunting, kayaking, hiking, and more on our property featuring 1/2 mile on the Cheat River 
-            and 1/2 mile on Clover Run trout stream.</p>
-            <a routerLink="/programs" class="btn btn-secondary">Activities</a>
+            <img src="assets/images/cabins/chapel.jpg" alt="Patriots 4 Chapel" class="feature-image">
+            <div class="feature-content">
+              <h3>Peace & Reflection</h3>
+              <p>Our chapel offers a quiet space for meditation, prayer, and renewal. We've baptized 24 
+              people in the river and hosted vow renewals for veteran families.</p>
+              <a routerLink="/about" class="btn btn-secondary">Learn More</a>
+            </div>
           </div>
         </div>
       </div>
@@ -112,40 +135,23 @@ import { CommonModule } from '@angular/common';
       </div>
     </section>
 
-    <!-- Location Section -->
-    <section class="section section-alt location">
+    <!-- Latest News Section -->
+    <section class="section section-alt">
       <div class="container">
-        <h2 class="text-center">Our Location</h2>
-        <div class="location-content">
-          <div class="location-text">
-            <p>
-              Patriots 4 is located in St. George, West Virginia, north of Monongahela National Forest 
-              and just 180 miles outside Washington DC.
-            </p>
-            <h4>Property Features:</h4>
-            <ul>
-              <li>1/2 mile on the Cheat River</li>
-              <li>1/2 mile on Clover Run trout stream</li>
-              <li>Bordered on the west and north by the Monongahela National Forest</li>
-              <li>Majestic mountains ideal for kayaking, hiking, hunting and fishing</li>
-            </ul>
-            <h4>Nearby Attractions:</h4>
-            <p>Canaan Valley, Blackwater Falls, Elkins, Thomas, The Purple Fiddle, 
-            The Smallest Church in 48 States</p>
+        <h2 class="text-center">Latest News</h2>
+        <div class="news-preview">
+          <div class="news-image">
+            <img src="assets/images/news/guitars_for_vets.jpg" alt="Vets with Guitars event">
           </div>
-          <div class="location-address">
-            <div class="address-card">
-              <h4>Visit Us</h4>
-              <p>
-                <strong>Patriots 4</strong><br>
-                28 Veterans Lane<br>
-                Parsons, WV 26287
-              </p>
-              <p class="directions">
-                At the intersection of State Road 72 and State Road 38, 
-                6 miles north of Parsons, WV
-              </p>
-            </div>
+          <div class="news-content">
+            <span class="news-date">December 2024</span>
+            <h3>Patriots 4 Hosts "Vets with Guitars" Weekend</h3>
+            <p>
+              Veterans gathered for a special weekend learning to use guitar and music as a therapeutic 
+              tool for managing PTSD and pain. Led by Kyle Stevens from Mannington, the veterans performed 
+              "America the Beautiful" while General Randy West recited a moving poem...
+            </p>
+            <a routerLink="/news" class="btn btn-outline">Read More</a>
           </div>
         </div>
       </div>
@@ -157,7 +163,7 @@ import { CommonModule } from '@angular/common';
         <h2>Support Our Mission</h2>
         <p class="lead">
           Patriots 4 is a 501(c)(3) Non-Profit organization supported by tax-deductible donations. 
-          Your generosity enables combat wounded service members to visit P4 free of charge.
+          Every penny we raise goes towards helping wounded veterans and their families.
         </p>
         <div class="donate-info">
           <h4>Mail Donations To:</h4>
@@ -183,8 +189,7 @@ import { CommonModule } from '@angular/common';
       min-height: 80vh;
       display: flex;
       align-items: center;
-      background: linear-gradient(135deg, var(--primary-navy) 0%, #2c4a6e 100%);
-      background-image: url('/assets/images/hero-bg.jpg');
+      background-image: url('/assets/images/hero/Flagwaving.jpg');
       background-size: cover;
       background-position: center;
     }
@@ -195,7 +200,7 @@ import { CommonModule } from '@angular/common';
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(135deg, rgba(26, 46, 76, 0.9) 0%, rgba(26, 46, 76, 0.7) 100%);
+      background: linear-gradient(135deg, rgba(26, 46, 76, 0.85) 0%, rgba(26, 46, 76, 0.6) 100%);
     }
 
     .hero-content {
@@ -241,6 +246,43 @@ import { CommonModule } from '@angular/common';
       }
     }
 
+    .aerial-section {
+      padding: 0;
+    }
+
+    .aerial-content {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0;
+      align-items: stretch;
+    }
+
+    .aerial-image {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+
+    .aerial-text {
+      padding: 60px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--light-cream);
+
+      h2 {
+        margin-bottom: 1rem;
+      }
+
+      p {
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+      }
+    }
+
     .welcome {
       .welcome-content {
         max-width: 800px;
@@ -270,9 +312,8 @@ import { CommonModule } from '@angular/common';
 
     .feature-card {
       background: var(--white);
-      padding: 40px 30px;
       border-radius: 8px;
-      text-align: center;
+      overflow: hidden;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -281,19 +322,26 @@ import { CommonModule } from '@angular/common';
         box-shadow: 0 8px 30px rgba(0,0,0,0.12);
       }
 
-      .feature-icon {
-        font-size: 3rem;
-        margin-bottom: 1rem;
+      .feature-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
       }
 
-      h3 {
-        font-size: 1.25rem;
-        margin-bottom: 1rem;
-      }
+      .feature-content {
+        padding: 25px;
+        text-align: center;
 
-      p {
-        color: var(--medium-gray);
-        margin-bottom: 1.5rem;
+        h3 {
+          font-size: 1.25rem;
+          margin-bottom: 1rem;
+        }
+
+        p {
+          color: var(--medium-gray);
+          margin-bottom: 1.5rem;
+          font-size: 0.95rem;
+        }
       }
     }
 
@@ -349,58 +397,46 @@ import { CommonModule } from '@angular/common';
       }
     }
 
-    .location-content {
+    .news-preview {
       display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 50px;
-      margin-top: 40px;
-    }
-
-    .location-text {
-      h4 {
-        margin-top: 1.5rem;
-        color: var(--primary-navy);
-      }
-
-      ul {
-        list-style: none;
-        margin: 1rem 0;
-
-        li {
-          padding: 8px 0;
-          padding-left: 25px;
-          position: relative;
-
-          &:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--primary-gold);
-            font-weight: bold;
-            font-size: 1.5rem;
-            line-height: 1;
-          }
-        }
-      }
-    }
-
-    .address-card {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
       background: var(--white);
-      padding: 30px;
       border-radius: 8px;
+      overflow: hidden;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      border-left: 4px solid var(--primary-gold);
+    }
 
-      h4 {
-        color: var(--primary-navy);
-        margin-bottom: 1rem;
+    .news-image {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+
+    .news-content {
+      padding: 40px;
+
+      .news-date {
+        color: var(--primary-red);
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
       }
 
-      .directions {
-        margin-top: 1rem;
-        font-size: 0.9rem;
+      h3 {
+        margin: 0.5rem 0 1rem;
+        font-size: 1.5rem;
+      }
+
+      p {
         color: var(--medium-gray);
-        font-style: italic;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
       }
     }
 
@@ -444,7 +480,11 @@ import { CommonModule } from '@angular/common';
         grid-template-columns: 1fr;
       }
 
-      .location-content {
+      .aerial-content {
+        grid-template-columns: 1fr;
+      }
+
+      .news-preview {
         grid-template-columns: 1fr;
       }
 

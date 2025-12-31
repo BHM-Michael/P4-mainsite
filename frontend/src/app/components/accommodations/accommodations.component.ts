@@ -102,12 +102,15 @@ import { CommonModule } from '@angular/common';
         </p>
         <p>
           Cabins are also available to rent to the public through Evolve Vacation Rentals. 
-          Non-wounded veterans receive a <strong>10% discount</strong> on cabin rentals.
+          Non-wounded veterans receive a <strong>20% discount</strong> on cabin rentals.
         </p>
         <p class="booking-note">
           Rental fees from non-wounded servicemen/women, veterans, and civilians enable 
           combat wounded service members to visit P4 free of charge.
         </p>
+        <p class="booking-note">
+          It is recommended that wounded veterans make reservations by calling Randy West directly at (202) 549 6828.
+        </p>        
         <div class="booking-buttons">
           <a href="https://evolve.com" target="_blank" class="btn btn-primary">Book on Evolve</a>
           <a routerLink="/contact" class="btn btn-secondary">Contact Us</a>

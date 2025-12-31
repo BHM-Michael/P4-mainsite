@@ -37,7 +37,7 @@ import { RouterLink } from '@angular/router';
             <h4>Also Eligible:</h4>
             <ul>
               <li>Spouses and children of veterans killed in service may also stay for free</li>
-              <li>Non-wounded veterans receive a 10% discount on cabin rentals</li>
+              <li>Non-wounded veterans receive a 20% discount on cabin rentals</li>
             </ul>
           </div>
 
@@ -66,7 +66,7 @@ import { RouterLink } from '@angular/router';
             <ul>
               <li>Fits a wheelchair hunter who can wheel their wheelchair inside the totally enclosed platform</li>
               <li>With the push of a button, it hydraulically lifts up to 25 feet in the air</li>
-              <li>Can accommodate 2-3 additional people comfortably</li>
+              <li>Can accommodate 2-3 additional people comfortably, one of which can also be in a wheelchair</li>
               <li>Solar charged for sustainable operation</li>
             </ul>
           </div>
@@ -84,6 +84,12 @@ import { RouterLink } from '@angular/router';
             <p>
               Experienced local guides are available to assist with hunting and fishing activities, 
               ensuring safe and successful outings for all skill levels.
+            </p>
+          </div>
+          <div class="equipment-card">
+            <h3>Double Kayaks</h3>
+            <p>
+              Kayaks with an additional seat so we can send an able-bodied guide or companion along with a wounded veteran.
             </p>
           </div>
         </div>
@@ -397,7 +403,8 @@ export class ProgramsComponent {
     'Hunting, kayaking, fishing',
     'Bait/tackle, ammunition',
     'Processing of catches and kills',
-    'Mounting of a WV trophy size catch or kill'
+    'Mounting of a WV trophy size catch or kill',
+    'Provisional hunting and fishing license for our wounded veterans'
   ];
 
   activities = [
