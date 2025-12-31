@@ -8,11 +8,6 @@ interface GalleryImage {
   category: string;
 }
 
-interface GalleryData {
-  categories: string[];
-  images: GalleryImage[];
-}
-
 @Component({
   selector: 'app-gallery',
   standalone: true,
@@ -44,8 +39,7 @@ interface GalleryData {
             [class.active]="activeFilter === cat"
             class="filter-btn">
             {{ cat }}
-            <span class="count" *ngIf="cat !== 'All'">({{ getCategoryCount(cat) }})</span>
-            <span class="count" *ngIf="cat === 'All'">({{ images.length }})</span>
+            <span class="count">({{ getCategoryCount(cat) }})</span>
           </button>
         </div>
 
@@ -58,7 +52,7 @@ interface GalleryData {
             class="gallery-item" 
             *ngFor="let image of filteredImages; let i = index"
             (click)="openLightbox(i)">
-            <img [src]="image.src" [alt]="image.alt" loading="lazy">
+            <img [src]="image.src" [alt]="image.alt" loading="lazy" (error)="onImageError($event)">
             <div class="gallery-overlay">
               <span>{{ image.alt }}</span>
             </div>
@@ -310,10 +304,16 @@ interface GalleryData {
   `]
 })
 export class GalleryComponent implements OnInit {
+  blobBaseUrl = 'https://p4images.blob.core.windows.net/images';
+  
+  // Folders to scan (these become categories)
+  // Exclude 'hero' and 'site logo' as they're not for gallery
+  foldersToScan = ['gallery', 'activities', 'cabins', 'people', 'extras', 'misc', 'news'];
+  
   categories: string[] = ['All'];
   images: GalleryImage[] = [];
-  activeFilter = 'All';
   loading = true;
+  activeFilter = 'All';
   
   // Lightbox
   lightboxOpen = false;
@@ -322,21 +322,83 @@ export class GalleryComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.loadGalleryData();
+    this.loadAllImages();
   }
 
-  loadGalleryData() {
-    this.http.get<GalleryData>('assets/gallery-data.json').subscribe({
-      next: (data) => {
-        this.categories = data.categories;
-        this.images = data.images;
-        this.loading = false;
-      },
-      error: (err) => {
-        console.error('Error loading gallery data:', err);
-        this.loading = false;
+  async loadAllImages() {
+    this.loading = true;
+    
+    for (const folder of this.foldersToScan) {
+      try {
+        await this.loadFolderImages(folder);
+      } catch (err) {
+        console.error(`Error loading ${folder}:`, err);
       }
+    }
+    
+    // Build categories from what we found
+    const uniqueCategories = [...new Set(this.images.map(img => img.category))];
+    this.categories = ['All', ...uniqueCategories];
+    
+    this.loading = false;
+  }
+
+  loadFolderImages(folder: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+      // Azure Blob Storage list API
+      const listUrl = `${this.blobBaseUrl}?restype=container&comp=list&prefix=${folder}/`;
+      
+      this.http.get(listUrl, { responseType: 'text' }).subscribe({
+        next: (xmlData) => {
+          // Parse XML response
+          const parser = new DOMParser();
+          const xml = parser.parseFromString(xmlData, 'text/xml');
+          const blobs = xml.querySelectorAll('Blob');
+          
+          const categoryName = this.formatCategoryName(folder);
+          
+          blobs.forEach(blob => {
+            const name = blob.querySelector('Name')?.textContent;
+            if (name && this.isImageFile(name)) {
+              this.images.push({
+                src: `${this.blobBaseUrl}/${name}`,
+                alt: this.formatImageName(name),
+                category: categoryName
+              });
+            }
+          });
+          
+          resolve();
+        },
+        error: (err) => {
+          console.error(`Failed to list ${folder}:`, err);
+          resolve(); // Continue even if one folder fails
+        }
+      });
     });
+  }
+
+  isImageFile(filename: string): boolean {
+    const ext = filename.toLowerCase();
+    return ext.endsWith('.jpg') || ext.endsWith('.jpeg') || 
+           ext.endsWith('.png') || ext.endsWith('.gif') || 
+           ext.endsWith('.webp');
+  }
+
+  formatCategoryName(folder: string): string {
+    return folder
+      .split(/[-_]/)
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
+  }
+
+  formatImageName(filepath: string): string {
+    // Get just the filename from the path
+    const filename = filepath.split('/').pop() || filepath;
+    return filename
+      .replace(/\.[^.]+$/, '') // Remove extension
+      .replace(/[-_]/g, ' ')   // Replace dashes/underscores with spaces
+      .replace(/\b\w/g, c => c.toUpperCase()); // Capitalize words
   }
 
   get filteredImages(): GalleryImage[] {
@@ -351,11 +413,13 @@ export class GalleryComponent implements OnInit {
   }
 
   getCategoryCount(category: string): number {
+    if (category === 'All') return this.images.length;
     return this.images.filter(img => img.category === category).length;
   }
 
   filterBy(category: string) {
     this.activeFilter = category;
+    this.currentIndex = 0;
   }
 
   openLightbox(index: number) {
@@ -383,5 +447,9 @@ export class GalleryComponent implements OnInit {
     this.currentIndex = this.currentIndex < this.filteredImages.length - 1 
       ? this.currentIndex + 1 
       : 0;
+  }
+
+  onImageError(event: any) {
+    event.target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
   }
 }

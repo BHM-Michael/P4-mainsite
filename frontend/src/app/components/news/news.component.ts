@@ -260,13 +260,15 @@ interface NewsArticle {
   `]
 })
 export class NewsComponent {
+  blobUrl = 'https://p4images.blob.core.windows.net/images/';
+
   articles: NewsArticle[] = [
     {
       id: 'vets-with-guitars-2024',
       title: 'Patriots 4 Hosts "Vets with Guitars" Weekend',
       date: 'December 2024',
       summary: 'Veterans gathered for a special weekend learning to use guitar and music as a therapeutic tool for managing PTSD and pain.',
-      image: 'assets/images/news/guitars_for_vets.jpg',
+      image: 'https://p4images.blob.core.windows.net/images/news/guitars_for_vets.jpg',
       content: [
         'Patriots 4 (P4) recently welcomed veterans for a special weekend event called "Vets with Guitars," where guests learned to use guitar and music as a therapeutic tool for managing PTSD and pain. Led by Kyle Stevens from Mannington, the veterans performed "America the Beautiful" while General Randy West recited a moving poem about a father who lost his son in war—a reminder that faith and fellowship can help heal even the deepest wounds. The weekend also included axe throwing and community barbecues, bringing veterans together in a spirit of camaraderie and support.',
         'P4 is a 354-acre retreat camp in St. George, West Virginia, founded in 2013 by Major General Randall "Randy" West, his wife Robin, and her brother and sister-in-law. After evaluating 25 potential locations across four states, they chose this site for its excellent hunting and fishing, proximity to Monongahela National Forest, and the welcoming patriotic community of Parsons. The camp operates entirely through donations and volunteer labor, with every penny going directly toward helping wounded veterans and their families.',

@@ -2,12 +2,12 @@
   "name": "patriots4-website",
   "version": "1.0.0",
   "description": "Patriots 4 - Serving The Ones Who Serve",
-"scripts": {
-  "ng": "ng",
-  "start": "ng serve",
-  "build": "node node_modules/@angular/cli/bin/ng.js build --configuration production",
-  "watch": "ng build --watch --configuration development"
-},
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "node node_modules/@angular/cli/bin/ng.js build --configuration production",
+    "watch": "ng build --watch --configuration development"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.0.0",
@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
     "rxjs": "~7.8.0",
+    "sharp": "^0.34.5",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.0"
   },

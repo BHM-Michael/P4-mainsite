@@ -29,7 +29,7 @@ import { CommonModule } from '@angular/common';
       <div class="container">
         <div class="aerial-content">
           <div class="aerial-image">
-            <img src="assets/images/hero/drone_over_camp.jpg" alt="Aerial view of Patriots 4 camp">
+            <img [src]="blobUrl + 'hero/drone_over_camp.jpg'" alt="Aerial view of Patriots 4 camp">
           </div>
           <div class="aerial-text">
             <h2>354 Acres of Freedom</h2>
@@ -77,7 +77,7 @@ import { CommonModule } from '@angular/common';
         <h2 class="text-center">What We Offer</h2>
         <div class="features-grid">
           <div class="feature-card">
-            <img src="assets/images/cabins/anchors-away.jpg" alt="Patriots 4 Cabin" class="feature-image">
+            <img [src]="blobUrl + 'cabins/anchors-away.jpg'" alt="Patriots 4 Cabin" class="feature-image" (error)="onImageError($event)">
             <div class="feature-content">
               <h3>Military-Themed Cabins</h3>
               <p>Wheelchair-accessible cabins named in honor of each military branch: Semper Fi, Hooah, 
@@ -87,7 +87,7 @@ import { CommonModule } from '@angular/common';
           </div>
           
           <div class="feature-card">
-            <img src="assets/images/activities/turkey-hunt.jpg" alt="Veterans turkey hunting" class="feature-image">
+            <img [src]="blobUrl + 'activities/2023 success.jpg'" alt="Veterans activities" class="feature-image" (error)="onImageError($event)">
             <div class="feature-content">
               <h3>Hunting & Fishing</h3>
               <p>Turkey, deer, bear, and grouse hunting during WV seasons. Fish for trout, smallmouth bass, 
@@ -97,7 +97,7 @@ import { CommonModule } from '@angular/common';
           </div>
           
           <div class="feature-card">
-            <img src="assets/images/cabins/chapel.jpg" alt="Patriots 4 Chapel" class="feature-image">
+            <img [src]="blobUrl + 'cabins/chapel.jpg'" alt="Patriots 4 Chapel" class="feature-image" (error)="onImageError($event)">
             <div class="feature-content">
               <h3>Peace & Reflection</h3>
               <p>Our chapel offers a quiet space for meditation, prayer, and renewal. We've baptized 24 
@@ -141,7 +141,7 @@ import { CommonModule } from '@angular/common';
         <h2 class="text-center">Latest News</h2>
         <div class="news-preview">
           <div class="news-image">
-            <img src="assets/images/news/guitars_for_vets.jpg" alt="Vets with Guitars event">
+            <img [src]="blobUrl + 'news/guitars_for_vets.jpg'" alt="Vets with Guitars event">
           </div>
           <div class="news-content">
             <span class="news-date">December 2024</span>
@@ -189,7 +189,7 @@ import { CommonModule } from '@angular/common';
       min-height: 80vh;
       display: flex;
       align-items: center;
-      background-image: url('/assets/images/hero/Flagwaving.jpg');
+      background-image: url('https://p4images.blob.core.windows.net/images/hero/usaf emblem.jpg');
       background-size: cover;
       background-position: center;
     }
@@ -399,7 +399,7 @@ import { CommonModule } from '@angular/common';
 
     .news-preview {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 300px 1fr;
       gap: 40px;
       align-items: center;
       background: var(--white);
@@ -411,14 +411,14 @@ import { CommonModule } from '@angular/common';
     .news-image {
       img {
         width: 100%;
-        height: 100%;
+        height: 250px;
         object-fit: cover;
         display: block;
       }
     }
 
     .news-content {
-      padding: 40px;
+      padding: 40px 40px 40px 0;
 
       .news-date {
         color: var(--primary-red);
@@ -488,10 +488,20 @@ import { CommonModule } from '@angular/common';
         grid-template-columns: 1fr;
       }
 
+      .news-content {
+        padding: 30px;
+      }
+
       .hero-content h1 {
         font-size: 2.5rem;
       }
     }
   `]
 })
-export class HomeComponent {}
+export class HomeComponent {
+  blobUrl = 'https://p4images.blob.core.windows.net/images/';
+
+  onImageError(event: any) {
+    event.target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
+  }
+}
